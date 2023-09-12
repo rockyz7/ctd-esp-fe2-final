@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import citaReducer from "../features/quote/citaSlice";
+import citaSliceReducer from "../features/quote/citaSlice";
 
 export const store = configureStore({
   reducer: {
-    cita: citaReducer,
+    cita: citaSliceReducer,
   },
 });
 
