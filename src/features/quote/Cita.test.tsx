@@ -73,7 +73,9 @@ describe("Cita component", () => {
     test("Should display a quote if the entered character is valid", async () => {
       await userEvent.type(input, "homer");
 
-      await userEvent.click(obtenerCitaBtn);
+      act(() => {
+        userEvent.click(obtenerCitaBtn);
+      });
 
       await waitFor(() => {
         const citaData = screen.getByText("I hope I didn't brain my damage.");
@@ -84,7 +86,9 @@ describe("Cita component", () => {
     test("Should display an error message if the entered character is invalid", async () => {
       await userEvent.type(input, "lisa");
 
-      await userEvent.click(obtenerCitaBtn);
+      act(() => {
+        userEvent.click(obtenerCitaBtn);
+      });
 
       await waitFor(() => {
         const errorMessage = screen.getByText(
