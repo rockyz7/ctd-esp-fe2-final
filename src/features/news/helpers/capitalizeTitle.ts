@@ -1,4 +1,4 @@
-export const capitalizeTitle = (title: string) => {
+export const capitalizeTitle = (title: string): string => {
   return title
     .split(" ")
     .map((str) => {

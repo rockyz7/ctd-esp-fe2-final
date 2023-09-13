@@ -101,7 +101,9 @@ describe("Cita component", () => {
     test("Should display an error message if the input is a number", async () => {
       await userEvent.type(input, "1234");
 
-      await userEvent.click(obtenerCitaBtn);
+      act(() => {
+        userEvent.click(obtenerCitaBtn);
+      });
 
       await waitFor(() => {
         const errorMessage = screen.getByText(
@@ -116,14 +118,18 @@ describe("Cita component", () => {
     test("Should remove the found quote", async () => {
       await userEvent.type(input, "homer");
 
-      await userEvent.click(obtenerCitaBtn);
+      act(() => {
+        userEvent.click(obtenerCitaBtn);
+      });
 
       await waitFor(() => {
         const citaData = screen.getByText("I hope I didn't brain my damage.");
         expect(citaData).toBeInTheDocument();
       });
 
-      await userEvent.click(borrarBtn);
+      act(() => {
+        userEvent.click(borrarBtn);
+      });
 
       await waitFor(() => {
         expect(
