@@ -1,4 +1,4 @@
-import { INoticiasNormalizadas } from "../interfaces/noticiasNormalizadas";
+import { SuscribeImage, CloseButton as Close } from "../../../assets";
 import {
   BotonSuscribir,
   CotenedorTexto,
@@ -6,15 +6,31 @@ import {
   ImagenModal,
   TituloModal,
 } from "../styled";
-import { useNoticias } from "../customHooks/useNoticias";
 
-const PremiumModal = (noticia: INoticiasNormalizadas) => {
+interface PremiumModalProps {
+  closeModal: () => void;
+}
+
+const PremiumModal = ({ closeModal }: PremiumModalProps) => {
   return (
     <>
-      <ImagenModal src={noticia.imagen} alt="news-image" />
+      <ImagenModal src={SuscribeImage} alt="mr-burns-excelent" />
       <CotenedorTexto>
-        <TituloModal>{noticia.titulo}</TituloModal>
-        <DescripcionModal>{noticia.descripcion}</DescripcionModal>
+        <TituloModal>Suscríbete a nuestro Newsletter</TituloModal>
+        <DescripcionModal>
+          Suscríbete a nuestro newsletter y recibe noticias de nuestros
+          personajes favoritos.
+        </DescripcionModal>
+        <BotonSuscribir
+          onClick={() =>
+            setTimeout(() => {
+              alert("Suscripto!");
+              closeModal();
+            }, 1000)
+          }
+        >
+          Suscríbete
+        </BotonSuscribir>
       </CotenedorTexto>
     </>
   );

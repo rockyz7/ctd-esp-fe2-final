@@ -17,7 +17,11 @@ const ListadoNoticias = ({ noticias }: ListadoNoticiasProps) => {
     <>
       <ListaNoticias>
         {noticias?.map((noticia) => (
-          <CardNoticia noticia={noticia} openModal={openModal} />
+          <CardNoticia
+            noticia={noticia}
+            openModal={openModal}
+            key={noticia.id}
+          />
         ))}
 
         {modal && <Modal noticia={modal} closeModal={closeModal} />}
